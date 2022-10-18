@@ -1,0 +1,129 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Formulaire</title>
+</head>
+<body>
+
+    {% if formulaire == 'form1' %}
+        <form action="" method='post'>
+
+            <div class="form-title">FORMULAIRE D'INSCRIPTION PROFESSEURS</div>
+
+            {% csrf_token %}
+            
+            
+            <div class="d_flex">
+                <div class="form-control">
+                    <div>Prenom</div>
+                    <div>{{ form.prenom }}</div>
+                </div>
+
+                <div class="form-control">
+                    <div>Nom</div>
+                    <div>{{ form.nom }}</div>
+                </div>
+            </div>
+
+            <div class="form-control">
+                <div>Adresse Mail</div>
+                <div>{{ form.email }}</div>
+            </div>
+
+            <div class="d_flex">
+                <div class="form-control">
+                    <div>Contact</div>
+                    <div>{{ form.contact_prof }}</div>
+                </div>
+
+                <div class="form-control">
+                    <div>Date d'adhesion</div>
+                    <div>{{ form.date_d_adhesion }}</div>
+                </div>
+            </div>
+
+            <div class="form-control">
+                <span>Chef de departement</span>
+                <span class="chef">{{ form.chef_departement }}</span>
+            </div>
+
+            
+            {% if errors %}
+                <div class="errors">
+                    Saisie incorrecte ou cases vides. Merci de remplir correctement.
+                </div>
+            {% endif %}
+
+            <div class="submit">
+                <input type='submit' value='Soumettre'>
+            </div>
+        </from>
+    {% endif %}
+
+
+
+
+    
+
+    {% if formulaire == 'form2' %}
+        <form action="" method='post'>
+            {% csrf_token %}
+
+            <div class="form-title">FORMULAIRE D'INSCRIPTION PROFESSEURS</div>
+
+            <div class="d_flex">
+                <div class="form-control">
+                    <div><label for="fname">Prenom</label></div>
+                    <div><input type="text" id="fname" name="fname"></div>
+                </div>
+
+                <div class="form-control">
+                    <div><label for="lname">Nom</label></div>
+                    <div><input type="text" id="lname" name="lname"></div>
+                </div>
+            </div>
+
+            <div class="form-control">
+                <div><label for="email">Adresse mail</label></div>
+                <div><input type="email" id="email" name="email" placeholder="example@ept.sn"></div>
+            </div>
+
+            <div class="d_flex">
+                <div class="form-control">
+                    <div><label for="phone">Contact</label></div>
+                    <div><input type="tel" id="phone" name="phone" placeholder="+221 xx xxx xx xx"></div>
+                </div>
+
+                <div class="form-control">
+                    <div><label for="date">Date d'adhésion:</label></div>
+                    <div><input type="text" id="date" name="date" placeholder="yyyy-mm-dd"></div>
+                </div>
+            </div>
+
+            <div class="form-control">
+                <label for="chef">Chef de département:</label>
+                <span class="chef"><input type="checkbox" id="chef" name="chef"></span>
+            </div>
+
+            
+            {% if errors %}
+                <div class="errors">
+                    Saisie incorrecte ou cases vides. Merci de remplir correctement.
+                </div>
+            {% endif %}
+
+            <div class="submit">
+                <input type='submit' value='Soumettre'>
+            </div>
+
+        </from>
+    {% endif %}
+
+</body>
+</html>
